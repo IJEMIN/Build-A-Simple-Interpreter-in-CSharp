@@ -11,7 +11,7 @@ namespace ConsoleApp1
         public int m_Pos;
         public Token m_CurrentToken;
 
-        private const char EmptyCharacter = '';
+        private const char EmptyCharacter = 't';
 
 
         public Interpreter(string mText)
@@ -56,6 +56,7 @@ namespace ConsoleApp1
             while (m_CurrentCharacter != EmptyCharacter && char.IsDigit(m_CurrentCharacter))
             {
                 result += m_CurrentCharacter;
+                Advance();
             }
 
             return int.Parse(result);
@@ -114,7 +115,6 @@ namespace ConsoleApp1
             Eat(TokenType.INTEGER);
 
             var op = m_CurrentToken;
-
             if (op.tokenType == TokenType.PLUS)
             {
                 Eat(TokenType.PLUS);    

@@ -18,7 +18,7 @@ namespace ConsoleApp1
                     var interpreter = new Interpreter(text);
                     var result = interpreter.Expression();
                     
-                    Console.Write(result);
+                    Console.WriteLine(result);
                 }
                 catch (Exception e)
                 {
