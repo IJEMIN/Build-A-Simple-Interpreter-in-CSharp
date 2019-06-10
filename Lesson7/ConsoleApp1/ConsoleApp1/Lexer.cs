@@ -75,6 +75,18 @@ namespace ConsoleApp1
                     return new Token(TokenType.INTEGER, GetInteger());
                 }
                 
+                if (m_CurrentCharacter == '+')
+                {
+                    Advance();
+                    return new Token(TokenType.PLUS, '+');
+                }
+                
+                if( m_CurrentCharacter == '-')
+                {
+                    Advance();
+                    return new Token(TokenType.MINUS, '-');
+                }
+
                 if (m_CurrentCharacter == '*')
                 {
                     Advance();
@@ -87,18 +99,6 @@ namespace ConsoleApp1
                     return new Token(TokenType.DIV, '/');
                 }
 
-                if (m_CurrentCharacter == '+')
-                {
-                    Advance();
-                    return new Token(TokenType.PLUS, '+');
-                }
-                
-                if( m_CurrentCharacter == '-')
-                {
-                    Advance();
-                    return new Token(TokenType.MINUS, '-');
-                }
-                
                 
                 if (m_CurrentCharacter == '(')
                 {
