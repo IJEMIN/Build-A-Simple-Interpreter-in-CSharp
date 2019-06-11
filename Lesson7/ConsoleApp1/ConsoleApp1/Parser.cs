@@ -31,7 +31,7 @@ namespace ConsoleApp1
             }
         }
 
-        Object Factor()
+        dynamic Factor()
         {
             var token = m_CurrentToken;
             if (token.tokenType == TokenType.INTEGER)
@@ -51,7 +51,7 @@ namespace ConsoleApp1
             return null;
         }
 
-        object Term()
+        dynamic Term()
         {
             var node = Factor();
 
@@ -67,13 +67,13 @@ namespace ConsoleApp1
                     Eat(TokenType.DIV);
                 }
 
-                node = new BinaryOperator((Num)node, token, (Num)Factor());
+                node = new BinaryOperator(node, token, Factor());
             }
 
             return node;
         }
 
-        public Object Expression()
+        public dynamic Expression()
         {
             var node = Term();
 
@@ -90,13 +90,13 @@ namespace ConsoleApp1
                     Eat(TokenType.MINUS);
                 }
                 
-                node = new BinaryOperator(left:(Num)node,op:token,right:(Num)Term());
+                node = new BinaryOperator(node,token,Term());
             }
 
             return node;
         }
 
-        public object Parse()
+        public dynamic Parse()
         {
             return Expression();
         }

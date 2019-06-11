@@ -5,9 +5,9 @@ namespace ConsoleApp1
     public class Token
     {
         public TokenType tokenType;
-        public object value;
+        public dynamic value;
 
-        public Token(TokenType tokenType, object value)
+        public Token(TokenType tokenType, dynamic value)
         {
             this.tokenType = tokenType;
             this.value = value;

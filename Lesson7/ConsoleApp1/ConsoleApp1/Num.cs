@@ -3,7 +3,7 @@ namespace ConsoleApp1
     public class Num
     {
         private Token token;
-        private int value;
+        public int value { get; private set; }
 
         public Num(Token token)
         {

@@ -10,15 +10,15 @@ namespace ConsoleApp1
             {
                 try
                 {
-                    Console.Write("calc>");
+                    Console.Write("spi>");
                     var text = Console.ReadLine();
 
                     if (string.IsNullOrEmpty(text)) continue;
 
                     var lexer = new Lexer(text);
-                    var interpreter = new Interpreter(lexer);
-                    var result = interpreter.Expression();
-                    
+                    var parser = new Parser(lexer);
+                    var interpreter = new Interpreter(parser);
+                    var result = interpreter.Interpret();
                     Console.WriteLine(result);
                 }
                 catch (Exception e)

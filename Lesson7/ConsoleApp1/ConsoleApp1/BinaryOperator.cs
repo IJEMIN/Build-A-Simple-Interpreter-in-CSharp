@@ -2,12 +2,12 @@ namespace ConsoleApp1
 {
     public class BinaryOperator
     {
-        private Token token;
-        private Token op;
-        private Num left;
-        private Num right;
+        public Token token { get; private set; }
+        public Token op { get; private set; }
+        public dynamic left { get; private set; }
+        public dynamic right { get; private set; }
 
-        public BinaryOperator(Num left, Token op, Num right)
+        public BinaryOperator(dynamic left, Token op, dynamic right)
         {
             this.left = left;
             this.token = this.op = op;
